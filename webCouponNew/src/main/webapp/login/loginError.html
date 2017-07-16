@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="jquery.cookie.js"></script>
+<title>login page</title>
+<link rel="stylesheet" type="text/css" href="login.css"/>
+<link rel="stylesheet" type="text/css" href="css/font-awesome.css"/>
+
+
+</head>
+
+<body>
+<h1><b><u>Login</u></b></h1>
+<h1><b>Password or Username are invalid</b></h1>
+<br>
+<br>
+<form id="loginForm" action="http://localhost:8080/webCouponNew/loginServlet" method="get">
+<label>
+<input type="radio" id="client" name="client" value="ADMIN"/><span>admin</span>
+</label><br>
+<label>
+<input type="radio" id="client" name="client" value="COMPANY"/><span>company</span>
+</label><br>
+<label>
+<input type="radio" id="client" name="client" value="CUSTOMER"/><span>customer</span>
+</label><br>
+<br>
+
+<div class="form-input">
+<input type="text" name="username" id="username" placeholder="Username"/><span id="validName"> </span>
+</div>
+<div class="form-pass">
+<input type="password" name="password" id="password" placeholder="Password"/><span id="validPassword"> </span>
+</div>
+<br>
+
+<input type="button" value="submit" onclick="validateForm()"/>
+
+</form>
+
+</body>
+<script>
+$("#validName").hide();
+function validateForm(){
+	var valid=true;
+	var name = $("#username").val().length;
+	var password = $('#password').val().length;
+	if (name < 5 || name > 20){
+		$("#validName").html("should be between 5 and 20 letters");
+		$("#validName").show();
+		valid = false;
+	}
+	if (password < 4){
+		$('#validPassword').html("password should be at leat 4 characters long");
+		$('#validPassword').show();
+		valid = false;
+	}
+	if (valid === true){
+		document.getElementById("loginForm").submit();
+	}
+	
+};
+
+$(document).ready(function(){
+	if ($.cookie("userName") == null){
+		
+	}
+	else{
+		document.getElementById("username").value = $.cookie("userName");
+		document.getElementById("password").value = $.cookie("password");
+		$("[name=client]").val([$.cookie("client")]);
+		document.getElementById("loginForm").submit();
+		
+	};
+	
+});
+
+
+
+</script>
+</html>

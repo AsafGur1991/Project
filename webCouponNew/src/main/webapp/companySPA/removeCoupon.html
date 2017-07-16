@@ -1,0 +1,14 @@
+<div ng-controller="removeCouponCtrl as b">
+<h2><u><b>REMOVE COUPON</b></u></h2>
+<form id="myForm" name="removeCouponFrom">
+<p>coupon id</p>
+<input type="text" ng-model="b.id" name="id" required />
+<span ng-show="removeCouponFrom.id.$invalid">Requierd!</span>
+<p>coupon title</p>
+<input type="text" ng-model="b.newCoupon.title" name="title" required />
+<span ng-show="removeCouponFrom.title.$invalid">Requierd!</span><br><br>
+<button ng-disabled=removeCouponFrom.$invalid ng-click="b.removeCoupon()" />remove coupon</button>
+<br>
+<br> <br>{{b.resault}} <br>
+</form>
+</div>

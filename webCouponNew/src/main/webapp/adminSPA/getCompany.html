@@ -1,0 +1,59 @@
+
+<div ng-controller="getCompanyCrtl as d">
+<h2><u><b>GET COMPANY</b></u></h2>
+<form name="getForm" id="myForm" class="form1"> 
+<p>company ID</p><input type="text" name="compId" ng-model="d.id" required/>
+<span ng-show="getForm.compId.$invalid">Requierd!</span><br><br>
+<button ng-disabled=getForm.$invalid ng-click="d.getCompany()"/><b>get company</b></button><br><br>
+<table>
+<thead>
+              <tr>
+                  <th>Id</th>
+                  <th>Name</th>
+                  <th>Password</th>
+                  <th>Email</th>
+                </tr>
+</thead>
+<tbody>
+              <tr>
+                  <td>{{d.arr.id}}</td>
+                  <td>{{d.arr.compName}}</td>
+                  <td>{{d.arr.password}}</td>
+                  <td>{{d.arr.email}}</td>
+                </tr>
+                </tbody>
+               </table>
+               <br>
+               <b>COUPONS</b>
+               <br>
+               <table id="second">
+               <thead>
+              <tr>
+                  <th>Id</th>
+                  <th>Title</th>
+                  <th>Start date</th>
+                  <th>End date</th>
+                  <th>Amount</th>
+                  <th>Type</th>
+                  <th>Message</th>
+                  <th>Price</th>
+                  <th>Image</th>
+                </tr>
+                </thead>
+                <tbody>
+
+              <tr ng-repeat="coupon in d.arr.mycoupons">
+                  <td>{{coupon.id}}</td>
+                  <td>{{coupon.title}}</td>
+                  <td>{{coupon.startDate}}</td>
+                  <td>{{coupon.endDate}}</td>
+                  <td>{{coupon.amount}}</td>
+                  <td>{{coupon.coupontype}}</td>
+                  <td>{{coupon.message}}</td>
+                  <td>{{coupon.price}}</td>
+                  <td>{{coupon.image}}</td>
+                </tr>
+                </tbody>
+               </table>
+</form>
+</div>

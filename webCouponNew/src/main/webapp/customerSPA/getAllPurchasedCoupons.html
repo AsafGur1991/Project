@@ -1,0 +1,34 @@
+<h2><u><b>GET ALL PURCHASED COUPONS</b></u></h2>
+<div id="myForm4" ng-controller="getAllPurchsedCouponsCtrl as d">
+ <table>
+ <thead>
+              <tr>
+                  <th>Id</th>
+                  <th>Title</th>
+                  <th>Start Date</th>
+                  <th>End Date</th>
+                  <th>Amount</th>
+                  <th>Coupon Type</th>
+                  <th>Message</th>
+                  <th>price</th>
+                  <th>Image</th>
+                </tr>
+                </thead>
+                <tbody>
+
+             <tr ng-repeat="coupon in d.arr">
+                  <td>{{coupon.id}}</td>
+                  <td>{{coupon.title}}</td>
+                  <td>{{coupon.startDate}}</td>
+                  <td>{{coupon.endDate}}</td>
+                  <td>{{coupon.amount}}</td>
+                  <td>{{coupon.coupontype}}</td>
+                  <td>{{coupon.message}}</td>
+                  <td>{{coupon.price}}</td>
+                  <td><img src="{{coupon.image}}" width="42" height="60"></td>
+                </tr>
+                </tbody>
+                </table>
+                {{d.resault}}
+
+</div>

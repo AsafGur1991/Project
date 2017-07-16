@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<title>admin user-interface</title>
+<style type = "text/css">
+body {
+margin-left : 0px;
+margin-top : 0px;
+margin-right : 0px;
+margin-bottom : 0px;
+
+}
+
+#Container {
+	width : 1920px;
+	
+}
+
+#header {
+	width:1920px;
+	height:200px;
+	position:relative;
+	background-color :#CCC;
+	border-bottom:2px solid #000000;
+}
+
+#sidebar {
+	float:left;
+	width:350px;
+	height:700px;
+	background-color:#0CC;
+	
+}
+
+.mainBody{
+	margin:auto;
+	width:1570px;
+	height:700px;
+	background-color:#00ff00;
+	float:right;
+}
+
+
+</style>
+</head>
+
+<body>
+<div id="Container">
+
+<div id="header">
+<br/>
+<h1>this is the header</h1>
+</div>
+<div id="sidebar">
+<h2>here will be the menu</h2>
+<ul class="nav">
+<li><a class="nav-link" href="#a">create company</a></li>
+<li><a class="nav-link" href="#b">remove company</a></li>
+<li><a class="nav-link" href="#c">update company</a></li>
+<li><a class="nav-link" href="#d">get company</a></li>
+<li><a class="nav-link" href="#e">get all companies</a></li>
+<li><a class="nav-link" href="#f">create customer</a></li>
+<li><a class="nav-link" href="#g">remove customer</a></li>
+<li><a class="nav-link" href="#h">update customer</a></li>
+<li><a class="nav-link" href="#i">get customer</a></li>
+<li><a class="nav-link" href="#j">get all customers</a></li>
+<li><a class="nav-link" href="#k">logout</a></li>
+</ul>
+</div>
+<div id="a" class="mainBody"><h3>create company</h3><br>
+<p>company name</p><input type="text" id="compNameCreate"/>
+<p id="companyNameCreateError"> </p>
+<p>password</p><input type="password" id="compPasswordCreate"/>
+<p id="companyPasswordCreateError"> </p>
+<p>email</p><input type="text" id="compEmailCreate"/><br><br>
+<p id="companyEmailCreateError"> </p>
+<input type="button" value="create" onclick="createCompany()"/><br>
+<p class="companyCreateResault"> </p>
+</div>
+
+<div id="b" class="mainBody"><h3>remove company</h3>
+<p>company id</p><input type="text" id="compIdRemove"/>
+<p id="companyIdRemoveError"> </p>
+<p>company name</p><input type="text" id="compNameRemove"/>
+<p id="companyNameRemoveError"> </p>
+<p>password</p><input type="password" id="compPasswordRemove"/>
+<p id="companyPasswordRemoveError"> </p>
+<p>email</p><input type="text" id="compEmailRemove"/><br><br>
+<p id="companyEmailRemoveError"> </p>
+<input type="button" value="remove" onclick="removeCompany()"/><br>
+<p class="companyRemoveResault"> </p>
+</div>
+<div id="c" class="mainBody"><h3>update company</h3>
+<br>
+<p>update the company's information</p>
+<p>you can only change the password and email</p>
+<br>
+<p>company id</p><input type="text" id="compIdUpdate"/>
+<p id="companyIdUpdateError"> </p>
+<p>company name</p><input type="text" id="compNameUpdate"/>
+<p id="companyNameUpdateError"> </p>
+<p>password</p><input type="password" id="compPasswordUpdate"/>
+<p id="companyPasswordUpdateError"> </p>
+<p>email</p><input type="text" id="compEmailUpdate"/><br><br>
+<p id="companyEmailUpdateError"> </p>
+<input type="button" value="update" onclick="updateCompany()"/><br>
+<p class="companyUpdateResault"> </p>
+</div>
+<div id="d" class="mainBody"><h3>get company</h3>
+<p>company ID</p><input type="text" id="compIdGet"/>
+<p id="companyIdGetError"> </p><br><br><br>
+<input type="button" value="get" onclick="getCompany()"/><br>
+<p class="companyGetReasault"> </p>
+</div>
+<div id="e" class="mainBody"><h3>get all companies</h3>
+<br><br>
+<input type="button" value="get all companys" onclick="getAllCompany()"/><br>
+<br>
+<textarea class="companyGetAllResault" rows="20" cols="50" id="companyGetAllText"> </textarea>
+</div>
+<div id="f" class="mainBody"><h3>create customer</h3>
+<p>customer name</p><input type="text" id="custNameCreate"/>
+<p id="customerNameCreateError"> </p>
+<p>password</p><input type="password" id="custPasswordCreate"/>
+<p id="customerPasswordCreateError"> </p>
+<br><br>
+<input type="button" value="create" onclick="createCustomer()"/><br>
+<p class="customerCreateResault"> </p>
+</div>
+<div id="g" class="mainBody"><h3>remove customer</h3>
+<p>customer id</p><input type="text" id="custIdRemove"/>
+<p id="customerIdRemoveError"> </p>
+<p>customer name</p><input type="text" id="custNameRemove"/>
+<p id="customerNameRemoveError"> </p>
+<p>password</p><input type="password" id="custPasswordRemove"/>
+<p id="customerPasswordRemoveError"> </p><br><br>
+<input type="button" value="remove" onclick="removeCustomer()"/><br>
+<p class="customerRemoveResault"> </p>
+</div>
+<div id="h" class="mainBody"><h3>update customer</h3>
+<br>
+<p>update the customer's information</p>
+<p>you can only change the password</p>
+<br>
+<p>customer id</p><input type="text" id="custIdUpdate"/>
+<p id="customerIdUpdateError"> </p>
+<p>customer name</p><input type="text" id="custNameUpdate"/>
+<p id="customerNameUpdateError"> </p>
+<p>password</p><input type="password" id="custPasswordUpdate"/>
+<p id="customerPasswordUpdateError"> </p><br><br>
+<input type="button" value="update" onclick="updateCustomer()"/><br>
+<p class="customerUpdateResault"> </p>
+</div>
+<div id="i" class="mainBody"><h3>get customer</h3>
+<p>customer ID</p><input type="text" id="custIdGet"/>
+<p id="customerIdGetError"> </p><br><br><br>
+<input type="button" value="get" onclick="getCustomer()"/><br>
+<p class="customerGetReasault"> </p>
+</div>
+<div id="j" class="mainBody"><h3>get all customers</h3>
+<br>
+<input type="button" value="get all customers" onclick="getAllCustomer()"/><br>
+<br>
+<textarea class="customerGetAllResault" rows="20" cols="50" id="customerGetAllText"> </textarea>
+</div>
+
+
+
+</div>
+
+<script>
+
+
+	function showPage(pageId) {
+		$(".mainBody").hide();
+		$(pageId).show();
+	}
+
+	$(window).on("hashchange", function(event) {
+		showPage(location.hash);
+	})
+
+	location.hash = "";
+	location.hash = "a";
+	//<---------------------------------------------------------------------------------------------------->
+
+	function createCompany() {
+		var valid = validCreate();
+		if (valid === true) {
+			$('.companyCreateResault').empty();
+			var compName = document.getElementById("compNameCreate").value;
+			var compPassword = document.getElementById("compPasswordCreate").value;
+			var compEmail = document.getElementById("compEmailCreate").value;
+			var companyJson = JSON.stringify({
+				"compName" : compName,
+				"password" : compPassword,
+				"email" : compEmail
+			});
+
+			$.ajax({
+				url : "http://localhost:8080/webCouponNew/webapi/admin/create/company",
+				type : "POST",
+				contentType : "application/json",
+				data : companyJson,
+				success : function(data) {
+					$('.companyCreateResault').append(
+							'<b>company ' + compName + ' was created</b>')
+				},
+				error : function(xhr, textStatus, errorThrown) {
+					alert(xhr.responseText);
+				}
+			});
+
+		}
+	}
+
+	function validCreate() {
+		$("#companyEmailCreateError").hide();
+		$("#companyPasswordCreateError").hide();
+		$("#comanyNameCreateError").hide();
+
+		var valid = true;
+		var name = $("#compNameCreate").val().length;
+		var password = $('#compPasswordCreate').val().length;
+		var email = $('#compEmailCreate').val();
+		var pattern = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+		if (name < 5) {
+			$("#companyNameCreateError").html("*required field");
+			$("#companyNameCreateError").show();
+			valid = false;
+		}
+		if (password < 5) {
+			$("#companyPasswordCreateError").html("*required field");
+			$("#companyPasswordCreateError").show();
+			valid = false;
+		}
+
+		if (pattern.test(email) === false) {
+			$("#companyEmailCreateError").html("*must be a valid email");
+			$("#companyEmailCreateError").show();
+			valid = false;
+		}
+		return valid;
+	}
+	//<------------------------------------------------------------------------------------------------->
+
+	function getCompany() {
+		var valid = companyValidGet();
+		if (valid === true){
+		var compId = document.getElementById("compIdGet").value;
+		$('.companyGetReasault').empty();
+		$.ajax({
+					url : "http://localhost:8080/webCouponNew/webapi/admin/get/company/"
+							+ compId,
+					type : "GET",
+					crossDomain : true,
+					dataType : 'json',
+						success : function(data){
+							$('.companyGetReasault').append(
+									'ID : ' + data.id +
+									'<br>Name : '+ data.compName +
+									'<br>Email : '+ data.email +
+									'<br>password : '+ data.password +
+									'<br>COUPONS : '+ data.mycoupons +
+									'<br><br><br>')
+							},
+							error : function(xhr, status, thrown){
+								alert (xhr.responseText);
+							}
+						});
+						
+			}
+		}
+	
+	
+	function companyValidGet(){
+		$("#companyIdGetError").hide();
+		var id = $('#compIdGet').val().length;
+		var valid = true;
+		if (id < 1){
+			$("#companyIdGetError").html("*required field");
+			$("#companyIdGetError").show();
+			valid = false;
+		}
+		return valid;
+		
+	}
+	//<------------------------------------------------------------------------------------------------->
+
+	function removeCompany() {
+		var valid = companyValidRemove();
+		if (valid === true) {
+			$('.companyRemoveResault').empty();
+			var compId = document.getElementById("compIdRemove").value;
+			var compName = document.getElementById("compNameRemove").value;
+			var compPassword = document.getElementById("compPasswordRemove").value;
+			var compEmail = document.getElementById("compEmailRemove").value;
+			var companyJson = JSON.stringify({
+				"id" : compId,
+				"compName" : compName,
+				"password" : compPassword,
+				"email" : compEmail
+			});
+			
+
+			$.ajax({
+				url : "http://localhost:8080/webCouponNew/webapi/admin/remove/company",
+				type : "POST",
+				contentType : "application/json",
+				data : companyJson,
+				success : function(data) {
+					$('.companyRemoveResault').append(
+							'<b>company ' + compName + ' has been removed</b>')
+				},
+				error : function(xhr, status, thrown){
+					alert (xhr.responseText);
+				}
+			});
+
+		}
+	}
+	
+	function companyValidRemove(){
+		$("#companyEmailRemoveError").hide();
+		$("#companyPasswordRemoveError").hide();
+		$("#companyNameRemoveError").hide();
+		$("#companyIdRemoveError").hide();
+
+		var valid = true;
+		var id = $('#compIdRemove').val();
+		var name = $('#compNameRemove').val().length;
+		var password = $('#compPasswordRemove').val().length;
+		var email = $('#compEmailRemove').val();
+		var pattern = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+		if (name < 5) {
+			$("#companyNameRemoveError").html("*required field");
+			$("#companyNameRemoveError").show();
+			valid = false;
+		}
+		if (password < 5) {
+			$("#companyPasswordRemoveError").html("*required field");
+			$("#companyPasswordRemoveError").show();
+			valid = false;
+		}
+
+		if (pattern.test(email) === false) {
+			$("#companyEmailRemoveError").html("*must be a valid email");
+			$("#companyEmailRemoveError").show();
+			valid = false;
+		}
+		if (id < 1){
+			$("#companyIdRemoveError").html("*required field");
+			$("#companyIdRemoveError").show();
+			valid = false;
+		}
+		return valid;
+		
+	}
+	//<------------------------------------------------------------------------------------------------>
+	
+	function updateCompany(){
+		var valid = companyValidUpdate();
+		if (valid === true) {
+			$('.companyUpdateResault').empty();
+			var compId = document.getElementById("compIdUpdate").value;
+			var compName = document.getElementById("compNameUpdate").value;
+			var compPassword = document.getElementById("compPasswordUpdate").value;
+			var compEmail = document.getElementById("compEmailUpdate").value;
+			var companyJson = JSON.stringify({
+				"id" : compId,
+				"compName" : compName,
+				"password" : compPassword,
+				"email" : compEmail
+			});
+
+			$.ajax({
+				url : "http://localhost:8080/webCouponNew/webapi/admin/update/company",
+				type : "POST",
+				contentType : "application/json",
+				data : companyJson,
+				success : function(data) {
+					$('.companyUpdateResault').append(
+							'<b>company ' + compName + ' information was update</b>')
+				},
+				error : function(xhr, status, thrown) {
+					alert(xhr.responseText);
+				}
+			});
+
+		}
+	}
+	
+	function companyValidUpdate(){
+		$("#companyEmailUpdateError").hide();
+		$("#companyPasswordUpdateError").hide();
+		$("#companyNameUpdateError").hide();
+		$("#companyIdUpdateError").hide();
+		
+		var valid = true;
+		var id = $('#compIdUpdate').val();
+		var name = $('#compNameUpdate').val().length;
+		var password = $('#compPasswordUpdate').val().length;
+		var email = $('#compEmailUpdate').val();
+		var pattern = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+		if (name < 5) {
+			$("#companyNameUpdateError").html("*required field");
+			$("#companyNameUpdateError").show();
+			valid = false;
+		}
+		if (password < 5) {
+			$("#companyPasswordUpdateError").html("*required field");
+			$("#companyPasswordUpdateError").show();
+			valid = false;
+		}
+
+		if (pattern.test(email) === false) {
+			$("#companyEmailUpdateError").html("*must be a valid email");
+			$("#companyEmailUpdateError").show();
+			valid = false;
+		}
+		if (id < 1){
+			$("#companyIdUpdateError").html("*required field");
+			$("#companyIdUpdateError").show();
+			valid = false;
+		}
+		return valid;
+
+	}
+	//<------------------------------------------------------------------------------------------------->
+	
+	function getAllCompany(){
+		$.ajax({
+			url : "http://localhost:8080/webCouponNew/webapi/admin/get/all/company"					,
+			type : "GET",
+			crossDomain : true,
+			dataType : 'json',
+			success :
+
+			function(data) {
+				for (var i = 0; i < data.length; i++){
+			
+					$('.companyGetAllResault').append(
+						'ID : ' + data[i].id +
+						'<br>Name : '+ data[i].compName +
+						'<br>password : '+ data[i].password +
+						'<br>EMAIL : '+ data[i].email +
+						'<br>COUPONS : '+ data[i].mycoupons +
+						'<br><br><br>')
+						
+				}
+				
+			}
+
+		});
+		
+	}
+	
+	//<----------------------------------------------------------------------------------------------->
+	
+	function createCustomer() {
+		var valid = validCreateCustomer();
+		if (valid === true) {
+			$('.customerCreateResault').empty();
+			var custName = document.getElementById("custNameCreate").value;
+			var custPassword = document.getElementById("custPasswordCreate").value;
+			var customerJson = JSON.stringify({
+				"custName" : custName,
+				"password" : custPassword
+			});
+
+			$.ajax({
+				url : "http://localhost:8080/webCouponNew/webapi/admin/create/customer",
+				type : "POST",
+				contentType : "application/json",
+				data : customerJson,
+				success : function(data) {
+					$('.customerCreateResault').append(
+							'<b>customer ' + custName + ' was created</b>')
+				},
+				error : function(xhr, status, thrown) {
+					alert(xhr.responseText);
+				}
+			});
+
+		}
+	}
+
+	function validCreateCustomer() {
+		$("#customerPasswordCreateError").hide();
+		$("#customerNameCreateError").hide();
+
+		var valid = true;
+		var name = $("#custNameCreate").val().length;
+		var password = $('#custPasswordCreate').val().length;
+		var email = $('#custEmailCreate').val();
+		var pattern = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+		if (name < 5) {
+			$("#customerNameCreateError").html("*required field");
+			$("#customerNameCreateError").show();
+			valid = false;
+		}
+		if (password < 5) {
+			$("#customerPasswordCreateError").html("*required field");
+			$("#customerPasswordCreateError").show();
+			valid = false;
+		}
+
+		return valid;
+	}
+	
+	//<---------------------------------------------------------------------------------------------->
+	
+	function removeCustomer() {
+		var valid = customerValidRemove();
+		if (valid === true) {
+			$('.customerRemoveResault').empty();
+			var custId = document.getElementById("custIdRemove").value;
+			var custName = document.getElementById("custNameRemove").value;
+			var custPassword = document.getElementById("custPasswordRemove").value;
+			var custJson = JSON.stringify({
+				"id" : custId,
+				"custName" : custName,
+				"password" : custPassword
+				
+			});
+			
+			
+			$.ajax({
+				url : "http://localhost:8080/webCouponNew/webapi/admin/remove/customer",
+				type : "POST",
+				contentType : "application/json",
+				data : custJson,
+				success : function(data) {
+					$('.customerRemoveResault').append(
+							'<b>customer ' + custName + ' has been removed</b>')
+				},
+				error : function(xhr, status, thrown) {
+					alert(xhr.responseText);
+				}
+			});
+
+
+		}
+	}
+	
+	function customerValidRemove(){
+		$("#customerPasswordRemoveError").hide();
+		$("#customerNameRemoveError").hide();
+		$("#customerIdRemoveError").hide();
+
+		var valid = true;
+		var id = $('#custIdRemove').val();
+		var name = $('#custNameRemove').val().length;
+		var password = $('#custPasswordRemove').val().length;
+		if (name < 5) {
+			$("#customerNameRemoveError").html("*required field");
+			$("#customerNameRemoveError").show();
+			valid = false;
+		}
+		
+		if (password < 5) {
+			$("#customerPasswordRemoveError").html("*required field");
+			$("#customerPasswordRemoveError").show();
+			valid = false;
+		}
+
+		if (id < 1){
+			$("#customerIdRemoveError").html("*required field");
+			$("#customerIdRemoveError").show();
+			valid = false;
+		}
+		return valid;
+		
+	}
+	
+	//<----------------------------------------------------------------------------------------------->
+	
+	function updateCustomer(){
+		var valid = customerValidUpdate();
+		if (valid === true) {
+			$('.customerUpdateResault').empty();
+			var custId = document.getElementById("custIdUpdate").value;
+			var custName = document.getElementById("custNameUpdate").value;
+			var custPassword = document.getElementById("custPasswordUpdate").value;
+			var customerJson = JSON.stringify({
+				"id" : custId,
+				"compName" : custName,
+				"password" : custPassword
+			});
+
+			$.ajax({
+				url : "http://localhost:8080/webCouponNew/webapi/admin/update/customer",
+				type : "POST",
+				contentType : "application/json",
+				data : customerJson,
+				success : function(data) {
+					$('.customerUpdateResault').append(
+							'<b>customer ' + custName + ' information was update</b>')
+				},
+				error : function(xhr, status, thrown) {
+					alert(xhr.responseText);
+				}
+			});
+
+		}
+	}
+	
+	function customerValidUpdate(){
+		$("#customerPasswordUpdateError").hide();
+		$("#customerNameUpdateError").hide();
+		$("#customerIdUpdateError").hide();
+		
+		var valid = true;
+		var id = $('#custIdUpdate').val();
+		var name = $('#custNameUpdate').val().length;
+		var password = $('#custPasswordUpdate').val().length;
+		if (name < 5) {
+			$("#customerNameUpdateError").html("*required field");
+			$("#customerNameUpdateError").show();
+			valid = false;
+		}
+		if (password < 5) {
+			$("#customerPasswordUpdateError").html("*required field");
+			$("#customerPasswordUpdateError").show();
+			valid = false;
+		}
+
+		if (id < 1){
+			$("#customerIdUpdateError").html("*required field");
+			$("#customerIdUpdateError").show();
+			valid = false;
+		}
+		return valid;
+
+	}
+	//<------------------------------------------------------------------------------------------------->
+	
+	function getCustomer() {
+		var valid = customerValidGet();
+		if (valid === true){
+		var custId = document.getElementById("custIdGet").value;
+		$('.customerGetReasault').empty();
+		$.ajax({
+					url : "http://localhost:8080/webCouponNew/webapi/admin/get/customer/"
+							+ custId,
+					type : "GET",
+					crossDomain : true,
+					dataType : 'json',
+					success :
+
+					function(data) {
+						$('.customerGetReasault').append(
+								'ID : ' + data.id +
+								'<br>Name : '+ data.custName +
+								'<br>password : '+ data.password +
+								'<br>COUPONS : '+ data.mycoupons +
+								'<br><br><br>')
+					},
+					error : function(xhr, status, thrown) {
+						alert(xhr.responseText);
+					}
+
+				});
+		}
+	}
+	
+	function customerValidGet(){
+		$("#customerIdGetError").hide();
+		var id = $('#custIdGet').val().length;
+		var valid = true;
+		if (id < 1){
+			$("#customerIdGetError").html("*required field");
+			$("#customerIdGetError").show();
+			valid = false;
+		}
+		return valid;
+		
+	}
+	//<-------------------------------------------------------------------------------------------------->
+	
+	function getAllCustomer(){
+		$.ajax({
+			url : "http://localhost:8080/webCouponNew/webapi/admin/get/all/customer"					,
+			type : "GET",
+			crossDomain : true,
+			dataType : 'json',
+			success :
+
+			function(data) {
+				for (var i = 0; i < data.length; i++){
+			
+					$('.customerGetAllResault').append(
+						'ID : ' + data[i].id +
+						'<br>Name : '+ data[i].compName +
+						'<br>password : '+ data[i].password +
+						'<br>COUPONS : '+ data[i].mycoupons +
+						'<br><br><br>')
+						
+				}
+				
+			}
+
+		});
+		
+	}
+	
+</script>
+
+</body>
+
+
+</html>

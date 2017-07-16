@@ -1,0 +1,23 @@
+<div ng-controller="updateCouponCtrl as c">
+<h2><u><b>UPDATE COUPON</b></u></h2>
+<form id="myForm" name="updateCouponForm">
+<p>update the coupon's information</p>
+<p>* you can only change the end date and the price</p>
+<p>coupon id</p>
+<input type="text" ng-model="c.newCoupon.id" name="id" required />
+<span ng-show="updateCouponForm.id.$invalid">Requierd!</span>
+<p>coupon title</p>
+<input type="text" ng-model="c.newCoupon.title" name="title" required />
+<span ng-show="updateCouponForm.title.$invalid">Requierd!</span>
+<p>end date</p>
+<input type="date" ng-model="c.newCoupon.endDate" name="endDate"
+placeholder="yyyy-MM-dd" required /> <span
+ng-show="updateCouponForm.endDate.$error.required">Requierd!</span>
+<p>price</p>
+<input type="text" ng-model="c.newCoupon.price" name="price" required /> 
+<span ng-show="updateCouponForm.price.$invalid">Requierd</span>
+<br><br>
+<button ng-disabled=updateCouponForm.$invalid ng-click="c.updateCoupon()" />update coupon</button>
+<br>{{c.resault}}
+</form>
+</div>

@@ -1,0 +1,145 @@
+body {
+color : blue;
+background-color: white;
+
+}
+
+h1{
+    font-family: Arial;
+    font-size: 30px;
+   
+}
+
+#loginForm{
+    margin: 20px auto;
+    width: 320px;
+    color: black;
+    
+}
+
+.error{
+	text-align: center;
+	font-size: 25px;
+	font-family: cursive;
+}
+
+input{
+    padding: 10px;
+    font-size: inherit;
+}
+
+input[type="text"]{
+    display: block;
+    margin-bottom: 25px;
+    width: 100%;
+    border: #3366ff 2px solid;
+    border-radius: 10px;
+    background: #ffff99;
+    padding-left: 40px;
+    margin-bottom: 0px;
+    }
+
+.form-input::before{
+    content: "\f007";
+    font-family: "FontAwesome";
+    font-size: 30px;
+    position: absolute;
+    padding-left: 5px;
+    padding-top: 5px;
+    font-size: 35px;
+   
+}    
+
+.form-pass::before{
+    content: "\f023";
+    font-family: "FontAwesome";
+    font-size: 30px;
+    position: absolute;
+    padding-left: 5px;
+    padding-top: 5px;
+    font-size: 35px;
+   
+}
+
+ 
+
+input[type="password"]{
+    display: block;
+    margin-bottom: 25px;
+    width: 100%;
+    border: #3366ff 2px solid;
+    border-radius: 10px;
+    background: #ffff99;
+    padding-left: 40px;
+    margin-top: 30px;
+    margin-bottom: 0;
+}
+
+input[type="button"]{
+    width:400px;
+    height: 45px;
+    border:none;
+    font-family:Arial;
+    background: green;
+    font-weight: bold;
+    border: 3px double black;
+    
+}
+input:focus{
+    background:white;
+}
+
+#validName{
+    font-size: 20px;
+    color:black;
+    background-color: red;
+    font-family: Blippo, fantasy;
+    
+}
+
+#validPassword{
+    font-size: 20px;
+    color:black;
+    background-color: red;
+    font-family: Blippo, fantasy;
+    
+}
+
+input[type="radio"]+span{
+    font-family: Arial;
+    font-size: 15px;
+    color: #00cc00;
+}
+
+input[type="radio"]:checked+span{
+	font-weight:bold;
+	}
+
+input[type="radio"]{
+    display: none;
+}
+
+input[type="radio"]+span::before{
+    content: "";
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border: 2px solid #00cc00;
+    margin-right: 5px;
+    margin-bottom: -2px;
+    border-radius: 50%;
+    box-shadow: 0 0 2px #000;
+}
+
+input[type="radio"]:checked+span::before{
+    background : radial-gradient(#6666ff,#6666ff,#6666ff);
+    
+}
+
+
+
+
+
+
+
+

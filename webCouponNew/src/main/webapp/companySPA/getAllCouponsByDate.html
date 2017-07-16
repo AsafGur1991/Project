@@ -1,0 +1,39 @@
+<h2><u><b>GET ALL COUPONS BY DATE</b></u></h2>
+<div ng-controller="getAllCouponsByDateCtrl as h">
+<form id="myForm3" name="getAllCouponByDateForm"> 
+<p id="select1">end date</p><input id="select1" type="date" name="date" ng-model="h.newDate.date" placeholder="yyyy-MM-dd" required/>
+<button ng-disabled=getAllCouponByDateForm.$invalid ng-click="h.getCouponsByDate()"/>get coupons</button><br><br>
+
+<table>
+              <thead>
+                  <tr>
+                  <th ng-click="h.sortData('id')">Id &nbsp<div ng-class="h.getSortClass('id')"></div></th>
+                  <th ng-click="h.sortData('Title')">Title &nbsp<div ng-class="h.getSortClass('Title')"></div></th>
+                  <th ng-click="h.sortData('Start')">Start Date &nbsp<div ng-class="h.getSortClass('Start')"></div></th>
+                  <th ng-click="h.sortData('End')">End Date &nbsp<div ng-class="h.getSortClass('End')"></div></th>
+                  <th ng-click="h.sortData('Amount')">Amount &nbsp<div ng-class="h.getSortClass('Amount')"></div></th>
+                  <th ng-click="h.sortData('Type')">Coupon Type &nbsp<div ng-class="h.getSortClass('Type')"></div></th>
+                  <th ng-click="h.sortData('Message')">Message &nbsp<div ng-class="h.getSortClass('Message')"></div></th>
+                  <th ng-click="h.sortData('price')">price &nbsp<div ng-class="h.getSortClass('price')"></div></th>
+                  <th ng-click="h.sortData('Image')">Image &nbsp<div ng-class="h.getSortClass('Image')"></div></th>
+                </tr>
+                </thead>
+                <tbody>
+
+             <tr ng-repeat="coupon in h.arr | orderBy:h.sortColumn:h.reverseSort">
+                  <td>{{coupon.id}}</td>
+                  <td>{{coupon.title}}</td>
+                  <td>{{coupon.startDate}}</td>
+                  <td>{{coupon.endDate}}</td>
+                  <td>{{coupon.amount}}</td>
+                  <td>{{coupon.coupontype}}</td>
+                  <td>{{coupon.message}}</td>
+                  <td>{{coupon.price}}</td>
+                  <td><img src="{{coupon.image}}" width="42" height="60"></td>
+                </tr>
+                </tbody>
+                </table>
+                {{h.resault}}
+
+</form>
+</div>

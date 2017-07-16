@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="customerSPA">
+<head>
+<script src="angular.js"></script>
+<script src="angular-ui-router.js"></script>
+<script src="customerRoute.js"></script>
+<script src="angular-cookies.js"></script>
+<script src="customer.js"></script>
+<script src="getCoupon.js"></script>
+<script src="getAllCoupons.js"></script>
+<script src="purchaseCoupon.js"></script>
+<script src="getAllPurchasedCoupons.js"></script>
+<script src="getAllPurchasedCouponsByType.js"></script>
+<script src="getAllPurchasedCouponsByPrice.js"></script>
+<script src="customerHttpService.js"></script>
+
+</head>
+<title>customer user-interface</title>
+<link rel="stylesheet" type="text/css" href="customer.css"/>
+<link rel="stylesheet" type="text/css" href="css/font-awesome.css"/>
+<body>
+<div id="Container">
+
+<div id="header" ng-controller="headerCtrl as t">
+<br/>
+<h1>WELCOME {{t.user}}</h1>
+<div><img class="pic" src="https://cdn3.iconfinder.com/data/icons/fez/512/FEZ-04-512.png"  height=80 width=80 ng-click="Logout=true"></div>
+<div id="logoutSpan" ng-show="Logout" my-logout ></div>
+</div>
+<div id="sidebar">
+<h2>menu</h2>
+<ul class="nav1">
+<li ui-sref="home"><a id="a1">home</a></li>
+<li ui-sref="getCoupon"><a id="a1">get coupon</a></li>
+<li ui-sref="getAllCoupons"><a id="a1">get all coupons</a></li>
+<li ui-sref="purchaseCoupon"><a id="a1">purchase coupon</a></li>
+<li ui-sref="getAllPurchasedCoupons"><a id="a1">purchased coupons</a></li>
+<li ui-sref="getAllPurchasedCouponsByType"><a id="a1">purchased coupons by type</a></li>
+<li ui-sref="getAllPurchasedCouponsByPrice"><a id="a1">purchased coupons by price</a></li>
+</ul>
+</div>
+<div class="mainBody" ui-view></div>
+
+
+</div>
+
+</body>
+</html>

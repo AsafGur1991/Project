@@ -1,0 +1,40 @@
+<h2><u><b>GET ALL COUPONS BY TYPE</b></u></h2>
+<div ng-controller="getAllPurchasedCouponsByTypeCtrl as e">
+<form id="myForm5" name="getAllPurchasedCouponByTypeForm"> 
+<p id="select1">coupon type</p>
+<select id="select1" name="type" ng-model="e.couponType" required>
+<option ng-repeat="option in e.types" value="{{option.typeValue}}">{{option.typeValue}}</option>
+</select>
+<button ng-disabled=getAllPurchasedCouponByTypeForm.$invalid ng-click="e.getAllCouponsByType()"/>get coupons</button><br><br>
+<table>
+              <thead>
+                  <tr>
+                  <th ng-click="e.sortData('id')">Id &nbsp<div ng-class="e.getSortClass('id')"></div></th>
+                  <th ng-click="e.sortData('Title')">Title &nbsp<div ng-class="e.getSortClass('Title')"></div></th>
+                  <th ng-click="e.sortData('Start')">Start Date &nbsp<div ng-class="e.getSortClass('Start')"></div></th>
+                  <th ng-click="e.sortData('End')">End Date &nbsp<div ng-class="e.getSortClass('End')"></div></th>
+                  <th ng-click="e.sortData('Amount')">Amount &nbsp<div ng-class="e.getSortClass('Amount')"></div></th>
+                  <th ng-click="e.sortData('Type')">Coupon Type &nbsp<div ng-class="e.getSortClass('Type')"></div></th>
+                  <th ng-click="e.sortData('Message')">Message &nbsp<div ng-class="e.getSortClass('Message')"></div></th>
+                  <th ng-click="e.sortData('price')">price &nbsp<div ng-class="e.getSortClass('price')"></div></th>
+                  <th ng-click="e.sortData('Image')">Image &nbsp<div ng-class="e.getSortClass('Image')"></div></th>
+                </tr>
+                </thead>
+                <tbody>
+
+             <tr ng-repeat="coupon in e.arr | orderBy:f.sortColumn:f.reverseSort">
+                  <td>{{coupon.id}}</td>
+                  <td>{{coupon.title}}</td>
+                  <td>{{coupon.startDate}}</td>
+                  <td>{{coupon.endDate}}</td>
+                  <td>{{coupon.amount}}</td>
+                  <td>{{coupon.coupontype}}</td>
+                  <td>{{coupon.message}}</td>
+                  <td>{{coupon.price}}</td>
+                  <td><img src="{{coupon.image}}" width="42" height="60"></td>
+                </tr>
+                </tbody>
+                </table>
+                {{e.resault}}
+</form>
+</div>

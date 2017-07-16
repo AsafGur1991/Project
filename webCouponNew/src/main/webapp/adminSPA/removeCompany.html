@@ -1,0 +1,19 @@
+
+<div ng-controller="removeCompanyCrtl as b">
+<h2><u><b>REMOVE COMPANY</b></u></h2>
+<form name="removeform" id="myForm">
+<p>company id</p><input type="text" name="compId" ng-model="b.newCompany.id" required/>
+<span ng-show="removeform.compId.$invalid">Requierd!</span>
+<p>company name</p><input type="text" name="compName" ng-model="b.newCompany.compName" required/>
+<span ng-show="removeform.compName.$invalid">Requierd!</span>
+<p>password</p><input type="password" name="compPass" ng-model="b.newCompany.password" required ng-minlength="5" ng-maxlength="10"/>
+<span ng-show="removeform.compPass.$error.required">Requierd!</span>
+<span ng-show="removeform.compPass.$error.minlength">Too short</span>
+<span ng-show="removeform.compPass.$error.maxlength">Too long</span>
+<p>email</p><input type="email" name="compEmail" ng-model="b.newCompany.email" required />
+<span ng-show="removeform.compEmail.$invalid">Requierd!</span>
+<br><br>
+<button ng-disabled=removeform.$invalid ng-click="b.removeCompany()"/>remove company</button><br><br>
+<br>{{b.resault}}
+</form>
+</div>

@@ -1,0 +1,36 @@
+<h2><u><b>GET ALL COUPONS</b></u></h2>
+<div id="myForm3" ng-controller="getAllCouponsCtrl as b">
+<div>
+ <table>
+ <thead>
+              <tr>
+                  <th ng-click="b.sortData('id')">Id &nbsp<div ng-class="b.getSortClass('id')"></div></th>
+                  <th ng-click="b.sortData('Title')">Title &nbsp<div ng-class="b.getSortClass('Title')"></div></th>
+                  <th ng-click="b.sortData('Start')">Start Date &nbsp<div ng-class="b.getSortClass('Start')"></div></th>
+                  <th ng-click="b.sortData('End')">End Date &nbsp<div ng-class="b.getSortClass('End')"></div></th>
+                  <th ng-click="b.sortData('Amount')">Amount &nbsp<div ng-class="b.getSortClass('Amount')"></div></th>
+                  <th ng-click="b.sortData('Type')">Coupon Type &nbsp<div ng-class="b.getSortClass('Type')"></div></th>
+                  <th ng-click="b.sortData('Message')">Message &nbsp<div ng-class="b.getSortClass('Message')"></div></th>
+                  <th ng-click="b.sortData('price')">price &nbsp<div ng-class="b.getSortClass('price')"></div></th>
+                  <th ng-click="b.sortData('Image')">Image &nbsp<div ng-class="b.getSortClass('Image')"></div></th>
+                </tr>
+                </thead>
+                <tbody>
+
+             <tr ng-repeat="coupon in b.arr | orderBy:b.sortColumn:b.reverseSort"">
+                  <td>{{coupon.id}}</td>
+                  <td>{{coupon.title}}</td>
+                  <td>{{coupon.startDate}}</td>
+                  <td>{{coupon.endDate}}</td>
+                  <td>{{coupon.amount}}</td>
+                  <td>{{coupon.coupontype}}</td>
+                  <td>{{coupon.message}}</td>
+                  <td>{{coupon.price}}</td>
+                  <td><img src="{{coupon.image}}" width="42" height="60"></td>
+                </tr>
+                </tbody>
+                </table>
+                {{b.resault}}
+               
+</div>
+</div>

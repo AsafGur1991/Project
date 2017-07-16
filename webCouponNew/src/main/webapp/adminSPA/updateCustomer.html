@@ -1,0 +1,18 @@
+
+<div ng-controller="updateCustomerCrtl as h">
+<h2><u><b>UPDATE CUSTOMER</b></u></h2>
+<form name="updateCustomerForm" id="myForm">
+<p>update the customers's information</p>
+<p>* you can only change the password</p>
+<p>company id</p><input type="text" name="custId" ng-model="h.newCustomer.id" required/>
+<span ng-show="updateCustomerForm.custId.$invalid">Requierd!</span>
+<p>company name</p><input type="text" name="custName" ng-model="h.newCustomer.custName" required/>
+<span ng-show="updateCustomerForm.custName.$invalid">Requierd!</span>
+<p>password</p><input type="password" name="custPass" ng-model="h.newCustomer.password" required ng-minlength="5" ng-maxlength="10"/>
+<span ng-show="updateCustomerForm.custPass.$error.required">Requierd!</span>
+<span ng-show="updateCustomerForm.custPass.$error.minlength">Too short</span>
+<span ng-show="updateCustomerForm.custPass.$error.maxlength">Too long</span><br><br>
+<button ng-disabled=updateCustomerForm.$invalid ng-click="h.updateCustomer()"/>update customer</button><br><br>
+<br>{{h.resault}}
+</form>
+</div>

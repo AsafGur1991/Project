@@ -1,0 +1,22 @@
+
+
+<div ng-controller="createCompanyCtrl as a">
+<h2><u><b>CREATE COMPANY</b></u></h2>
+<form id="myForm" name="createCompanyFrom">
+<p>company name</p><input type="text" ng-model="a.newCompany.compName" name="compName" required/>
+<span ng-show="createCompanyFrom.compName.$invalid">Requierd!</span>
+<p>password</p><input type="password" ng-model="a.newCompany.password" name="compPass" required ng-minlength="5" ng-maxlength="10"/>
+<span ng-show="createCompanyFrom.compPass.$error.required">Requierd!</span>
+<span ng-show="createCompanyFrom.compPass.$error.minlength">Too short</span>
+<span ng-show="createCompanyFrom.compPass.$error.maxlength">Too long</span>
+<p>email</p><input type="email" ng-model="a.newCompany.email" name="compEmail" required/>
+<span ng-show="createCompanyFrom.compEmail.$invalid">Requierd</span>
+<br><br>
+<button ng-disabled=createCompanyFrom.$invalid ng-click="a.createCompany()"/>create company</button><br><br>
+</form>
+<br>{{a.resault}}
+<br>
+</div>
+
+
+

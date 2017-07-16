@@ -1,0 +1,21 @@
+
+<div ng-controller="updateCompanyCrtl as c">
+<h2><b><u>UPDATE COMPANY</u></b></h2>
+<form name="updateForm" id="myForm">
+<p>update the company's information</p>
+<p>* you can only change the password and email</p>
+<br>
+<p>company id</p><input type="text" name="compId" ng-model="c.newCompany.id" required/>
+<span ng-show="updateForm.compId.$invalid">Requierd!</span>
+<p>company name</p><input type="text" name="compName" ng-model="c.newCompany.compName" required/>
+<span ng-show="updateForm.compName.$invalid">Requierd!</span>
+<p>password</p><input type="password" name="compPass" ng-model="c.newCompany.password" required ng-minlength="5" ng-maxlength="10"/>
+<span ng-show="updateForm.compPass.$error.required">Requierd!</span>
+<span ng-show="updateForm.compPass.$error.minlength">Too short</span>
+<span ng-show="updateForm.compPass.$error.maxlength">Too long</span>
+<p>email</p><input type="email" name="compEmail" ng-model="c.newCompany.email" required/>
+<span ng-show="updateForm.compEmail.$invalid">Requierd!</span><br><br>
+<button ng-disabled=updateform.$invalid ng-click="c.updateCompany()"/>update company</button><br><br>
+<br>{{c.resault}}
+</form>
+</div>

@@ -1,0 +1,15 @@
+<h2><u><b>CREATE CUSTOMER</b></u></h2>
+<div ng-controller="createCustomerCrtl as f">
+<form name="createCustomerFrom" id="myForm">
+<p>customer name</p><input type="text" ng-model="f.newCustomer.custName" name="custName" required/>
+<span ng-show="createCustomerFrom.custName.$invalid">Requierd!</span>
+<p>password</p><input type="password" ng-model="f.newCustomer.password" name="custPass" required ng-minlength="5" ng-maxlength="10"/>
+<span ng-show="createCustomerFrom.custPass.$error.required">Requierd!</span>
+<span ng-show="createCustomerFrom.custPass.$error.minlength">Too short</span>
+<span ng-show="createCustomerFrom.custPass.$error.maxlength">Too long</span>
+<br><br>
+<button ng-disabled=createCustomerFrom.$invalid ng-click="f.createCustomer()"/>create customer</button><br><br>
+<br>{{f.resault}}
+<br>
+</form>
+</div>

@@ -1,0 +1,10 @@
+<h2><u><b>PURCHASE COUPON</b></u></h2>
+<div ng-controller="purchaseCouponCtrl as c">
+<form id="myForm" name="getCouponForm"> 
+<p>coupon ID</p><input type="text" name="couponId" ng-model="c.id" required/>
+<span ng-show="getCouponForm.couponId.$invalid">required</span><br><br>
+<button ng-disabled=getCouponForm.$invalid ng-click="c.purchaseCoupon()"/>purchase coupon</button><br><br>
+<br>
+</form>
+{{c.resault}}
+</div>

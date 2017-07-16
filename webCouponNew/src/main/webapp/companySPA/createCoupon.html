@@ -1,0 +1,47 @@
+<html>
+<body>
+		<h2><u><b>CREATE COUPON</b></u></h2>
+		<div ng-controller="createCouponCtrl as a">
+		<form id="myForm2" name="createCouponFrom">
+			<span>coupon title</span>
+			<input type="text" ng-model="a.newCoupon.title" name="title" required />
+			<span ng-show="createCouponFrom.title.$invalid">Requierd!</span>
+			<span id="span4">start date</span>
+			<input type="date" ng-model="a.newCoupon.startDate" name="startDate"
+				placeholder="yyyy-MM-dd" required />
+				<span ng-show="createCouponFrom.startDate.$error.required">Requierd!</span><br><br>
+			<span id="span1">end date</span>
+			<input type="date" ng-model="a.newCoupon.endDate" name="endDate"
+				placeholder="yyyy-MM-dd" required /> 
+				<span ng-show="createCouponFrom.endDate.$error.required">Requierd!</span>
+			<span id="span5">amount</span>
+			<input type="text" ng-model="a.newCoupon.amount" name="amount"
+				required /> <span ng-show="createCouponFrom.amount.$invalid">Requierd</span><br><br>
+			<span id="span2">coupon type</span>
+			<select name="type" ng-model="a.newCoupon.coupontype" required>
+				<option ng-repeat="option in a.types" value="{{option.typeValue}}">{{option.typeValue}}</option>
+
+			</select> <span ng-show="createCouponFrom.type.$invalid">Requierd</span>
+			<span id="span6">message</span>
+			<input type="text" ng-model="a.newCoupon.message" name="message"
+				required /> <span ng-show="createCouponFrom.message.$invalid">Requierd</span><br><br>
+				<span id="span3">price</span>
+			<input type="text" ng-model="a.newCoupon.price" name="price" required /> 
+			<span ng-show="createCouponFrom.price.$invalid">Requierd</span><br><br>
+			<span id="span7">image</span>
+			<input type="file" id="newFile" name="image" onchange="fileLoad()" required /> 
+			<span ng-show="createCouponFrom.image.$invalid">Requierd</span>
+			<br>
+			<br>
+			<button id="create" ng-disabled=createCouponFrom.$invalid ng-click="a.createCoupon()" />create coupon</button>
+			<br>
+			<br> <br>{{a.resault}} <br>
+		</form>
+	</div>
+	</body>
+	</html>
+
+
+
+
+

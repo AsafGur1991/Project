@@ -1,0 +1,97 @@
+!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8" />
+<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+<title>company user-interface</title>
+<style type = "text/css">
+body {
+margin-left : 0px;
+margin-top : 0px;
+margin-right : 0px;
+margin-bottom : 0px;
+
+}
+
+#Container {
+	width : 1920px;
+	
+}
+
+#header {
+	width:1920px;
+	height:200px;
+	position:relative;
+	background-color :#CCC;
+	border-bottom:2px solid #000000;
+}
+
+#sidebar {
+	float:left;
+	width:350px;
+	height:700px;
+	background-color:#0CC;
+	
+}
+
+.mainBody{
+	margin:auto;
+	width:1570px;
+	height:700px;
+	background-color:#00ff00;
+	float:right;
+}
+</style>
+</head>
+
+<body>
+<div id="Container">
+
+<div id="header">
+<br/>
+<h1>this is the header</h1>
+</div>
+<div id="sidebar">
+<h2>here will be the menu</h2>
+<ul class="nav">
+<li><a class="nav-link" href="#a">create coupon</a></li>
+<li><a class="nav-link" href="#b">remove coupon</a></li>
+<li><a class="nav-link" href="#c">update coupon</a></li>
+<li><a class="nav-link" href="#d">get coupon</a></li>
+<li><a class="nav-link" href="#e">get all coupons</a></li>
+<li><a class="nav-link" href="#f">get all coupons by type</a></li>
+<li><a class="nav-link" href="#g">get all coupons by price</a></li>
+<li><a class="nav-link" href="#h">get all coupons by date</a></li>
+<li><a class="nav-link" href="#k">logout</a></li>
+</ul>
+</div>
+<div id="a" class="mainBody"><h3>create coupon</h3></div>
+<div id="b" class="mainBody"><h3>remove coupon</h3></div>
+<div id="c" class="mainBody"><h3>update coupon</h3></div>
+<div id="d" class="mainBody"><h3>get coupon</h3></div>
+<div id="e" class="mainBody"><h3>get all coupons</h3></div>
+<div id="f" class="mainBody"><h3>get all coupons by type</h3></div>
+<div id="g" class="mainBody"><h3>get all coupons by price</h3></div>
+<div id="h" class="mainBody"><h3>get all coupons by date</h3></div>
+
+</div>
+
+<script>
+
+function showPage(pageId){
+$(".mainBody").hide();
+$(pageId).show();
+}
+
+$(window).on("hashchange", function(event){
+showPage(location.hash);
+})
+
+location.hash = "";
+location.hash = "a";
+
+</script>
+
+</body>
+
+

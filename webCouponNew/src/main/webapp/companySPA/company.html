@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html ng-app="companySPA">
+<head>
+<script src="angular.js"></script>
+<script src="angular-ui-router.js"></script>
+<script src="companyRoute.js"></script>
+<script src="angular-cookies.js"></script>
+<script src="company.js"></script>
+<script src="createCoupon.js"></script>
+<script src="removeCoupon.js"></script>
+<script src="updateCoupon.js"></script>
+<script src="getCoupon.js"></script>
+<script src="getAllCoupons.js"></script>
+<script src="getAllCouponsByType.js"></script>
+<script src="getAllCouponsByPrice.js"></script>
+<script src="getAllCouponsByDate.js"></script>
+<script src="companyHttpService.js"></script>
+
+
+
+</head>
+<title>company user-interface</title>
+<link rel="stylesheet" type="text/css" href="company.css"/>
+<link rel="stylesheet" type="text/css" href="css/font-awesome.css"/>
+
+
+<body>
+<div id="Container" >
+
+<div id="header" ng-controller="headerCtrl as t">
+<br/>
+<h1>WELCOME {{t.user}}</h1>
+<div><img class="pic" src="https://cdn3.iconfinder.com/data/icons/fez/512/FEZ-04-512.png"  height=80 width=80 ng-click="Logout=true"></div>
+<div id="logoutSpan" ng-show="Logout" my-logout ></div>
+</div>
+<div id="sidebar">
+<h2><u>menu</u></h2>
+<ul class="nav">
+<li ui-sref="home"><a>home</a></li>
+<li ui-sref="createCoupon"><a>create coupon</a></li>
+<li ui-sref="removeCoupon"><a>remove coupon</a></li>
+<li ui-sref="updateCoupon"><a>update coupon</a></li>
+<li ui-sref="getCoupon"><a>get coupon</a></li>
+<li ui-sref="getAllCoupons"><a>get all coupons</a></li>
+<li ui-sref="getAllCouponsByType"><a>get all coupons by type</a></li>
+<li ui-sref="getAllCouponsByPrice"><a>get all coupons by price</a></li>
+<li ui-sref="getAllCouponsByDate"><a>get all coupons by date</a></li>
+</ul>
+</div>
+<div class="mainBody" ui-view></div>
+
+</body>
+<script type='text/javascript'>
+var pic = null;
+
+function fileLoad(){
+	var filesSelected = document.getElementById("newFile").files;
+	if (filesSelected.length > 0) {
+	      var fileToLoad = filesSelected[0];
+
+	      var fileReader = new FileReader();
+
+	      fileReader.onload = function(fileLoadedEvent) {
+	        var srcData = fileLoadedEvent.target.result; 
+
+	        var newImage = document.createElement('img');
+	        newImage.src = srcData;
+	        pic = newImage.src;	        
+	       
+	      }
+	      fileReader.readAsDataURL(fileToLoad);
+	    }
+	  console.log("this is test " + pic);
+  }
+
+</script>
+</html>
+

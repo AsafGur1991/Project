@@ -1,0 +1,57 @@
+
+<div ng-controller="getCustomerCrtl as i">
+<h2><b><u>GET CUSTOMER</u></b></h2>
+<form name="getCustomerForm" id="myForm"> 
+<p>customer ID</p><input type="text" name="custId" ng-model="i.id" required/>
+<span ng-show="getCustomerForm.compId.$invalid">Requierd!</span><br><br>
+<button ng-disabled=getCustomerForm.$invalid ng-click="i.getCustomer()"/>get customer</button><br><br>
+<table>
+<thead>
+              <tr>
+                  <th>Id</th>
+                  <th>Name</th>
+                  <th>Password</th>
+                </tr>
+                </thead>
+                <tbody>
+
+              <tr>
+                  <td>{{i.arr.id}}</td>
+                  <td>{{i.arr.custName}}</td>
+                  <td>{{i.arr.password}}</td>
+                </tr>
+                </tbody>
+               </table>
+               <br>
+               <p><b>COUPONS</b></p>
+               <table id="second">
+               <thead>
+              <tr>
+                  <th>Id</th>
+                  <th>Title</th>
+                  <th>Start date</th>
+                  <th>End date</th>
+                  <th>Amount</th>
+                  <th>Type</th>
+                  <th>Message</th>
+                  <th>Price</th>
+                  <th>Image</th>
+                </tr>
+                </thead>
+                <tbody>
+
+              <tr ng-repeat="coupon in i.arr.mycoupons">
+                  <td>{{coupon.id}}</td>
+                  <td>{{coupon.title}}</td>
+                  <td>{{coupon.startDate}}</td>
+                  <td>{{coupon.endDate}}</td>
+                  <td>{{coupon.amount}}</td>
+                  <td>{{coupon.coupontype}}</td>
+                  <td>{{coupon.message}}</td>
+                  <td>{{coupon.price}}</td>
+                  <td>{{coupon.image}}</td>
+                </tr>
+                </tbody>
+               </table>
+</form>
+</div>

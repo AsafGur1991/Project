@@ -1,0 +1,28 @@
+<h2><u><b>GET ALL COMPANY</b></u></h2>
+<div id="myForm" ng-controller="getAllCompanyCrtl as e">
+<div id="scrollTable">
+ <table>
+ <thead>
+              <tr>
+                  <th ng-click="e.sortData('id')"><div>Id &nbsp<div ng-class="e.getSortClass('id')"></div></th>
+                  <th ng-click="e.sortData('Name')"><div>Name &nbsp<div ng-class="e.getSortClass('Name')"></div></th>
+                  <th ng-click="e.sortData('email')"><div>Email &nbsp<div ng-class="e.getSortClass('email')"></div></th>
+                  <th ng-click="e.sortData('password')"><div>Password &nbsp<div ng-class="e.getSortClass('password')"></div></th>
+
+                </tr>
+                </thead>
+                <tbody>
+
+              <tr ng-repeat="company in e.arr | orderBy:e.sortColumn:e.reverseSort">
+                  <td>{{company.id}}</td>
+                  <td>{{company.compName}}</td>
+                  <td>{{company.email}}</td>
+                  <td>{{company.password}}</td>
+                </tr>
+                </tbody>
+               </table>
+          </div>
+               <br><br>
+{{resault}}
+
+</div>

@@ -1,0 +1,16 @@
+<h2><b><u>REMOVE CUSTOMER</u></b></h2>
+<div ng-controller="removeCustomerCrtl as g">
+<form name="removeCustomerform" id="myForm">
+<p>customer id</p><input type="text" name="custId" ng-model="g.newCustomer.id" required/>
+<span ng-show="removeCustomerform.custId.$invalid">Requierd!</span>
+<p>customer name</p><input type="text" name="custName" ng-model="g.newCustomer.custName" required/>
+<span ng-show="removeCustomerform.custName.$invalid">Requierd!</span>
+<p>password</p><input type="password" name="custPass" ng-model="g.newCustomer.password" required ng-minlength="5" ng-maxlength="10"/>
+<span ng-show="removeCustomerform.custPass.$error.required">Requierd!</span>
+<span ng-show="removeCustomerform.custPass.$error.minlength">Too short</span>
+<span ng-show="removeCustomerform.custPass.$error.maxlength">Too long</span>
+<br><br>
+<button ng-disabled=removeCustomerform.$invalid ng-click="g.removeCustomer()"/>remove customer</button><br><br>
+<br>{{g.resault}}
+</form>
+</div>

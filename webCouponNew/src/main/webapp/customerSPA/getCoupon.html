@@ -1,0 +1,38 @@
+<h2><u><b>GET COUPON</b></u></h2>
+<div ng-controller="getCouponCtrl as a">
+<form id="myForm" name="getCouponForm"> 
+<p>coupon ID</p><input type="text" name="couponId" ng-model="a.id" required/>
+<span ng-show="getCouponForm.couponId.$invalid">Requierd!</span><br><br>
+<button ng-disabled=getCouponForm.$invalid ng-click="a.getCoupon()"/>get coupon</button><br><br>
+<table>
+<thead>
+              <tr>
+                  <th>Id</th>
+                  <th>Title</th>
+                  <th>Start Date</th>
+                  <th>End Date</th>
+                  <th>Amount</th>
+                  <th>Coupon Type</th>
+                  <th>Message</th>
+                  <th>price</th>
+                  <th>Image</th>
+                </tr>
+                </thead>
+                <tbody>
+
+              <tr>
+                  <td>{{a.arr.id}}</td>
+                  <td>{{a.arr.title}}</td>
+                  <td>{{a.arr.startDate}}</td>
+                  <td>{{a.arr.endDate}}</td>
+                  <td>{{a.arr.amount}}</td>
+                  <td>{{a.arr.coupontype}}</td>
+                  <td>{{a.arr.message}}</td>
+                  <td>{{a.arr.price}}</td>
+                  <td><img src="{{a.arr.image}}" width="42" height="60"></td>
+                </tr>
+                </tbody>
+                </table>
+                {{a.resault}}
+</form>                
+</div>

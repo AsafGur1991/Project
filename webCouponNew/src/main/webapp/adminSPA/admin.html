@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="AdminSPA">
+<head>
+<script src="angular.js"></script>
+<script src="angular-ui-router.js"></script>
+<script src="ui-route.js"></script>
+<script src="angular-cookies.js"></script>
+<script src="admin.js"></script>
+<script src="createCompany.js"></script>
+<script src="removeCompany.js"></script>
+<script src="removeCustomer.js"></script>
+<script src="updateCompany.js"></script>
+<script src="updateCustomer.js"></script>
+<script src="getCompany.js"></script>
+<script src="getCustomer.js"></script>
+<script src="getAllCompanys.js"></script>
+<script src="getAllCustomer.js"></script>
+<script src="createCustomer.js"></script>
+<script src="adminHttpService.js"></script>
+
+</head>
+
+<title>admin user-interface</title>
+<link rel="stylesheet" type="text/css" href="admin.css"/>
+<link rel="stylesheet" type="text/css" href="css/font-awesome.css"/>
+
+<body>
+
+<div id="Container">
+
+<div id="header" ng-controller="headerCtrl as a">
+<br/>
+<h1>WELCOME {{a.user}}</h1>
+<div><img class="pic" src="https://cdn3.iconfinder.com/data/icons/fez/512/FEZ-04-512.png"  height=80 width=80 ng-click="Logout=true"></div>
+<div id="logoutSpan" ng-show="Logout" my-logout ></div>
+</div>
+<div id="sidebar">
+<h2><u>menu</u></h2>
+<ul id="nav">
+<li ui-sref="home"><a>home</a></li>
+<li ui-sref="createCompany"><a>create company</a></li>
+<li ui-sref="removeCompany"><a>remove Company</a></li>
+<li ui-sref="updateCompany"><a>update company</a></li>
+<li ui-sref="getCompany"><a>get company</a></li>
+<li ui-sref="getAllCompanys"><a>get all companies</a></li>
+<li ui-sref="createCustomer"><a>create customer</a></li>
+<li ui-sref="removeCustomer"><a>remove customer</a></li>
+<li ui-sref="updateCustomer"><a>update customer</a></li>
+<li ui-sref="getCustomer"><a>get customer</a></li>
+<li ui-sref="getAllCustomers"><a>get all customers</a></li>
+</ul>
+</div>
+<div class="mainBody" ui-view></div>
+<div id="footer"></div>
+
+</html>
